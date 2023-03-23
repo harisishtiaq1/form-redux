@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 
 const careerLevel = [
   {
@@ -30,34 +30,34 @@ const careerLevel = [
 ];
 const degreeLevel = [
   {
-    value: "Non-Matriculation",
+    name: "Non-Matriculation",
   },
   {
-    value: "Intermediate/A-Level",
+    name: "Intermediate/A-Level",
   },
   {
-    value: "Matriculation/O-Level",
+    name: "Matriculation/O-Level",
   },
   {
-    value: "Bachelors",
+    name: "Bachelors",
   },
   {
-    value: "Masters",
+    name: "Masters",
   },
   {
-    value: "M-phil/MS",
+    name: "M-phil/MS",
   },
   {
-    value: "PHD/Dectorate",
+    name: "PHD/Dectorate",
   },
   {
-    value: "Certification",
+    name: "Certification",
   },
   {
-    value: "Diploma",
+    name: "Diploma",
   },
   {
-    value: "Short Course",
+    name: "Short Course",
   },
 ];
 function Qualifications() {
@@ -70,7 +70,6 @@ function Qualifications() {
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
-  console.log("checked", checked);
 
   return (
     <React.Fragment>
@@ -110,9 +109,7 @@ function Qualifications() {
             variant="standard"
           >
             {degreeLevel.map((option) => (
-              <option>
-                {option.value}
-              </option>
+              <option>{option.name}</option>
             ))}
           </TextField>
         </Grid>
@@ -124,8 +121,6 @@ function Qualifications() {
             onChange={(e) => setPortfolio(e.target.value)}
             required
             fullWidth
-            name="expire"
-            id="expire"
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={12}>
@@ -136,18 +131,15 @@ function Qualifications() {
             onChange={(e) => setProfile(e.target.value)}
             required
             fullWidth
-            name="expire"
-            id="expire"
           ></TextField>
         </Grid>
       </Grid>
       <FormControl>
         <FormControlLabel
-          control={<Switch onChange={handleChange} />}
+          control={<Switch checked={checked} onChange={handleChange} />}
           label="Agreed"
         />
       </FormControl>
-
     </React.Fragment>
   );
 }

@@ -28,12 +28,12 @@ const martialStatus = [
   },
 ];
 function PersonalDetails() {
-  const [firstName, setFirstName] = useState();
-  const [lastName, setLastName] = useState();
-  const [phoneNumber, setPhoneNumber] = useState();
-  const [address, setAddress] = useState();
-  const [city, setCity] = useState();
-  const [country, setCountry] = useState();
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
   const [gender, setGender] = useState();
   const [newMartialStatus, setNewMartialStatus] = useState();
 
@@ -46,8 +46,6 @@ function PersonalDetails() {
         <Grid item xs={12} sm={6}>
           <TextField
             label="First name"
-            id="firstname"
-            name="firstname"
             variant="standard"
             required
             fullWidth
@@ -58,8 +56,6 @@ function PersonalDetails() {
         <Grid item xs={12} sm={6}>
           <TextField
             label="Last name"
-            id="lastname"
-            name="lastname"
             variant="standard"
             required
             value={lastName}
@@ -70,8 +66,6 @@ function PersonalDetails() {
         <Grid item xs={12}>
           <TextField
             label="Phone Number"
-            id="Phone Number"
-            name="Phone"
             variant="standard"
             required
             fullWidth
@@ -82,8 +76,6 @@ function PersonalDetails() {
         <Grid item xs={12}>
           <TextField
             label="Address"
-            id="Address1"
-            name="Address1"
             variant="standard"
             required
             fullWidth
@@ -94,8 +86,6 @@ function PersonalDetails() {
         <Grid item xs={12} sm={6}>
           <TextField
             label="City"
-            id="City"
-            name="City"
             variant="standard"
             required
             fullWidth
@@ -106,8 +96,6 @@ function PersonalDetails() {
         <Grid item xs={12} sm={6}>
           <TextField
             label="Country"
-            id="country"
-            name="country"
             variant="standard"
             required
             fullWidth
