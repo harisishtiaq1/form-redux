@@ -147,9 +147,7 @@ function Qualifications() {
           label="Agreed"
         />
       </FormControl>
-      {/* <Button onClick={onSubmit} variant="contained">
-        Submit
-      </Button> */}
+
     </React.Fragment>
   );
 }

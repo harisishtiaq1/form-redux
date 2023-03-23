@@ -158,9 +158,6 @@ function PersonalDetails() {
             ))}
           </TextField>
         </Grid>
-        {/* <Button onClick={onSubmit} variant="contained">
-          Submit
-        </Button> */}
       </Grid>
     </React.Fragment>
   );
