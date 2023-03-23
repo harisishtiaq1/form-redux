@@ -1,77 +1,88 @@
+import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from "@mui/material";
 import React from "react";
-import Typography from "@mui/material/Typography";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
-import Grid from "@mui/material/Grid";
 
-function Review() {
-  const products = [
-    {
-      name: "Product 1",
-      desc: "A nice thing",
-      price: "1080 RS",
-    },
-    {
-      name: "Product 2",
-      desc: "Apples",
-      price: " 450 RS",
-    },
-    {
-      name: "Product 3",
-      desc: "Oranges",
-      price: "108 RS",
-    },
-    {
-      name: "Product 4",
-      desc: "Kiwi Fruit",
-      price: "350 RS",
-    },
-    { name: "Shipping", desc: "", price: "Free" },
-  ];
-  // const address = [
-  //   "New",
-  //   "Islamadbad",
-  //   "Laboratory",
-  //   "Nawaz",
-  //   "Chowk",
-  //   "Kamalia",
-  // ];
-  // const details = [
-  //   { name: "card type", details: "Master card" },
-  //   { name: "card holder", details: "Muhammad Haris Ishtiaq" },
-  //   { name: "card Number", details: "xxxx-xxxx-xxxx-7392" },
-  //   { name: "Expiry Date", details: "07/2027" },
-  // ];
+function PersonalDetails() {
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
-        Order Summary
+        Personal Details
       </Typography>
-      <List disablePadding>
-        {products.map((product) => (
-          <ListItem key={product.name} sx={{ py: 1, px: 0 }}>
-            <ListItemText
-              primary={product.name}
-              secondary={product.desc}
-            ></ListItemText>
-            <Typography>{product.price}</Typography>
-          </ListItem>
-        ))}
-        <ListItem sx={{ py: 1, px: 0 }}>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
-          </Typography>
-        </ListItem>
-      </List>
-      <Grid container spacing={2}>
-        <Typography variant="h5" component="h1" sx={{ mt: 2 }}>
-          Shipping
-        </Typography>
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="First name"
+            id="firstname"
+            name="firstname"
+            variant="standard"
+            required
+            fullWidth
+          ></TextField>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Last name"
+            id="lastname"
+            name="lastname"
+            variant="standard"
+            required
+            fullWidth
+          ></TextField>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Phone Number"
+            id="Phone Number"
+            name="Phone"
+            variant="standard"
+            required
+            fullWidth
+          ></TextField>
+        </Grid>
+        <Grid item xs={12}>
+          <TextField
+            label="Address"
+            id="Address1"
+            name="Address1"
+            variant="standard"
+            required
+            fullWidth
+          ></TextField>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="City"
+            id="City"
+            name="City"
+            variant="standard"
+            required
+            fullWidth
+          ></TextField>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            label="Country"
+            id="country"
+            name="country"
+            variant="standard"
+            required
+            fullWidth
+          ></TextField>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+        <FormControl>
+  <FormLabel >Gender</FormLabel>
+  <RadioGroup
+    defaultValue="female"
+  >
+    <FormControlLabel value="Female" control={<Radio />} label="Female" />
+    <FormControlLabel value="Male" control={<Radio />} label="Male" />
+    <FormControlLabel value="Other" control={<Radio />} label="Other" />
+  </RadioGroup>
+</FormControl>
+        </Grid>
       </Grid>
     </React.Fragment>
   );
 }
 
-export default Review;
+export default PersonalDetails

@@ -1,6 +1,33 @@
-import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup, TextField, Typography } from "@mui/material";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  Radio,
+  RadioGroup,
+  TextField,
+  Typography,
+} from "@mui/material";
 import React from "react";
 
+const martialStatus = [
+  {
+    id: 1,
+    value: "Single",
+  },
+  {
+    id: 2,
+    value: "Married",
+  },
+  {
+    id: 3,
+    value: "Divorced",
+  },
+  {
+    id: 4,
+    value: "Widow",
+  },
+];
 function PersonalDetails() {
   return (
     <React.Fragment>
@@ -69,20 +96,45 @@ function PersonalDetails() {
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
-        <FormControl>
-  <FormLabel >Gender</FormLabel>
-  <RadioGroup
-    defaultValue="female"
-  >
-    <FormControlLabel value="Female" control={<Radio />} label="Female" />
-    <FormControlLabel value="Male" control={<Radio />} label="Male" />
-    <FormControlLabel value="Other" control={<Radio />} label="Other" />
-  </RadioGroup>
-</FormControl>
+          <FormControl>
+            <FormLabel required>Gender</FormLabel>
+            <RadioGroup defaultValue="female">
+              <FormControlLabel
+                value="Female"
+                control={<Radio />}
+                label="Female"
+              />
+              <FormControlLabel value="Male" control={<Radio />} label="Male" />
+              <FormControlLabel
+                value="Other"
+                control={<Radio />}
+                label="Other"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <TextField
+            select
+            required
+            label="Martial Status"
+            defaultValue="Select your Martial Status"
+            SelectProps={{
+              native: true,
+            }}
+            sx={{ width: 200 }}
+            variant="standard"
+          >
+            {martialStatus.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.value}
+              </option>
+            ))}
+          </TextField>
         </Grid>
       </Grid>
     </React.Fragment>
   );
 }
 
-export default PersonalDetails
+export default PersonalDetails;
