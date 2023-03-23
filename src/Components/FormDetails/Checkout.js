@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import PersonalDetails from "./PersonalDetails";
 import Qualifications from "./Qualifications";
 import Experience from "./Experience";
-
+import { useDispatch } from "react-redux";
 const steps = ["Personal Details", "Qualifications", "Experience"];
 
 function getStepContent(step) {
@@ -27,6 +27,7 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
+  const dispatch=useDispatch()
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {

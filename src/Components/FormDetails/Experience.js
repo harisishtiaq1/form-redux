@@ -13,42 +13,35 @@ import React, { useState } from "react";
 
 const expectedSalary = [
   {
-    id: 1,
     salary: "10K-20K",
   },
   {
-    id: 2,
     salary: "30K-50K",
   },
   {
-    id: 3,
     salary: "50K-70K",
   },
   {
-    id: 4,
     salary: "70K-90K",
   },
   {
-    id: 5,
     salary: "90K-100K",
   },
   {
-    id: 6,
     salary: "100K-110K",
   },
   {
-    id: 1,
     salary: "10K-20K",
   },
 ];
 
 function Experience() {
-  const [checked,setChecked]=useState(false);
-
-  const handleChange=(e)=>{
-    setChecked(e.target.checked)
-    console.log(checked,"checked");
-  }
+  const [checked, setChecked] = useState(false);
+  const [experience, setExperience] = useState();
+  const handleChange = (e) => {
+    setChecked(e.target.checked);
+    console.log(checked, "checked");
+  };
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
