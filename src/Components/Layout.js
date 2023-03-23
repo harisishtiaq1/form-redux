@@ -1,10 +1,8 @@
-import React from 'react'
-import Checkout from './FormDetails/Checkout'
+import React from "react";
+import Checkout from "./FormDetails/Checkout";
 
 function Layout() {
-  return (
-    <Checkout/>
-  )
+  return <Checkout />;
 }
 
-export default Layout
+export default Layout;

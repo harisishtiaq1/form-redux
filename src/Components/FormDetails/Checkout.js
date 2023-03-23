@@ -11,7 +11,7 @@ import PersonalDetails from "./PersonalDetails";
 import Qualifications from "./Qualifications";
 import Experience from "./Experience";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { formData } from "../../Slice/Slice";
 const steps = ["Personal Details", "Qualifications", "Experience"];
 
@@ -29,8 +29,8 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
-  const dispatch=useDispatch()
-  const {user}=useSelector(formData)
+  const dispatch = useDispatch();
+  // const { user } = useSelector(formData);
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -40,10 +40,10 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-  const onSubmit=(e)=>{
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch(formData());
-  }
+  };
 
   return (
     <>
