@@ -28,7 +28,7 @@ function getStepContent(step) {
 }
 
 export default function Checkout() {
-  const dispatch=useDispatch()
+  const dispatch = useDispatch();
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -38,12 +38,12 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-  const onSubmit=(e)=>{
+  const onSubmit = (e) => {
     e.preventDefault();
     dispatch(formData());
-  }
-  console.log("formData",formData)
-  console.log("formData",onSubmit)
+  };
+  console.log("formData", formData);
+  console.log("formData", onSubmit);
 
   return (
     <>

@@ -50,7 +50,11 @@ function Experience() {
         <Grid item xs={12} sm={6}>
           <FormControl>
             <FormLabel required>Work Experience</FormLabel>
-            <RadioGroup value={experience} onChange={(e)=>setExperience(e.target.value)} sx={{ display: "flex" }}>
+            <RadioGroup
+              value={experience}
+              onChange={(e) => setExperience(e.target.value)}
+              sx={{ display: "flex" }}
+            >
               <FormControlLabel value="No" control={<Radio />} label="No" />
               <FormControlLabel value="yes" control={<Radio />} label="yes" />
             </RadioGroup>
@@ -61,7 +65,7 @@ function Experience() {
             select
             required
             value={salary}
-            onChange={(e)=>setSalary(e.target.value)}
+            onChange={(e) => setSalary(e.target.value)}
             fullWidth
             variant="outlined"
             label="Expected Salary"
@@ -77,8 +81,8 @@ function Experience() {
         </Grid>
         <Grid item xs={12}>
           <TextField
-          value={job}
-          onChange={(e)=>setJob(e.target.value)}
+            value={job}
+            onChange={(e) => setJob(e.target.value)}
             label="Preffered Job City"
             id="City"
             name="City"
