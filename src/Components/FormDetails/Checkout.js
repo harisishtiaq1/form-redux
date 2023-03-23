@@ -9,9 +9,10 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import PersonalDetails from "./PersonalDetails";
 import Qualifications from "./Qualifications";
-import Review from "./Review";
+import Experience from "./Experience";
+import { AppBar, Switch, Toolbar } from "@mui/material";
 
-const steps = ["Personal Details", "Qualifications", "Name to be decided"];
+const steps = ["Personal Details", "Qualifications", "Experience"];
 
 function getStepContent(step) {
   switch (step) {
@@ -20,12 +21,11 @@ function getStepContent(step) {
     case 1:
       return <Qualifications />;
     case 2:
-      return <Review />;
+      return <Experience />;
     default:
       throw new Error("Unknown step");
   }
 }
-
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -38,10 +38,11 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
   return (
-      <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+    <>
+      <Container component="main" maxWidth="sm" sx={{ mt: 4 }}>
         <Paper
           variant="outlined"
-          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}
+          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 },backgroundColor:'lightblue' }}
         >
           <Typography component="h1" variant="h4" align="center">
             User Personal Details
@@ -64,7 +65,11 @@ export default function Checkout() {
               {getStepContent(activeStep)}
               <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                 {activeStep !== 0 && (
-                  <Button variant="contained" onClick={handleBack} sx={{ mt: 3, ml: 1 }}>
+                  <Button
+                    variant="contained"
+                    onClick={handleBack}
+                    sx={{ mt: 3, ml: 1 }}
+                  >
                     Back
                   </Button>
                 )}
@@ -81,5 +86,6 @@ export default function Checkout() {
           )}
         </Paper>
       </Container>
+    </>
   );
 }
