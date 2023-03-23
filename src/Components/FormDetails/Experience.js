@@ -9,7 +9,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 const expectedSalary = [
   {
@@ -43,6 +43,12 @@ const expectedSalary = [
 ];
 
 function Experience() {
+  const [checked,setChecked]=useState(false);
+
+  const handleChange=(e)=>{
+    setChecked(e.target.checked)
+    console.log(checked,"checked");
+  }
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
@@ -88,8 +94,11 @@ function Experience() {
           ></TextField>
         </Grid>
       </Grid>
-      <FormControl sx={{mt:3}}>
-      <FormControlLabel control={<Checkbox />} label="I Hereby Apply for this role" />
+      <FormControl sx={{ mt: 3 }}>
+        <FormControlLabel
+          control={<Checkbox checked={checked} onChange={handleChange} />}
+          label="I Hereby Apply for this role"
+        />
       </FormControl>
     </React.Fragment>
   );

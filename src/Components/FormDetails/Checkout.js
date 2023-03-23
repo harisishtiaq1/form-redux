@@ -10,7 +10,6 @@ import Typography from "@mui/material/Typography";
 import PersonalDetails from "./PersonalDetails";
 import Qualifications from "./Qualifications";
 import Experience from "./Experience";
-import { AppBar, Switch, Toolbar } from "@mui/material";
 
 const steps = ["Personal Details", "Qualifications", "Experience"];
 
@@ -42,7 +41,11 @@ export default function Checkout() {
       <Container component="main" maxWidth="sm" sx={{ mt: 4 }}>
         <Paper
           variant="outlined"
-          sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 },backgroundColor:'lightblue' }}
+          sx={{
+            my: { xs: 3, md: 6 },
+            p: { xs: 2, md: 3 },
+            backgroundColor: "lightblue",
+          }}
         >
           <Typography component="h1" variant="h4" align="center">
             User Personal Details

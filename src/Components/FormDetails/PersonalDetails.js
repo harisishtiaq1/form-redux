@@ -176,7 +176,6 @@ function PersonalDetails() {
           Submit
         </Button> */}
       </Grid>
-      
     </React.Fragment>
   );
 }
