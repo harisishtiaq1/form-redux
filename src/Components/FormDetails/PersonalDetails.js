@@ -9,8 +9,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { formData } from "../../Slice/Slice";
 const martialStatus = [
   {
     id: 1,
@@ -30,7 +28,6 @@ const martialStatus = [
   },
 ];
 function PersonalDetails() {
-  const dispatch=useDispatch();
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [phoneNumber, setPhoneNumber] = useState();
@@ -39,18 +36,6 @@ function PersonalDetails() {
   const [country, setCountry] = useState();
   const [gender, setGender] = useState();
   const [newMartialStatus, setNewMartialStatus] = useState();
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log('firstName',firstName);
-    console.log('lastName',lastName);
-    console.log('phoneNumber',phoneNumber);
-    console.log("city",city);
-    console.log("address",address);
-    console.log("country",country);
-    console.log("gender",gender);
-    console.log("newMartialStatus",newMartialStatus);
-  };
 
   return (
     <React.Fragment>

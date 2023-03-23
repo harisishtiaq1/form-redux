@@ -72,14 +72,6 @@ function Qualifications() {
   };
   console.log("checked", checked);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    console.log("career", career);
-    console.log("newDegreeLevel", newDegreeLevel);
-    console.log(portfolio, "portfolio");
-    console.log("profile", profile);
-    console.log("checked", checked);
-  };
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

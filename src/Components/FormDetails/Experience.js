@@ -30,14 +30,13 @@ const expectedSalary = [
   {
     salary: "100K-110K",
   },
-  {
-    salary: "10K-20K",
-  },
 ];
 
 function Experience() {
   const [checked, setChecked] = useState(false);
   const [experience, setExperience] = useState();
+  const [salary, setSalary] = useState();
+  const [job, setJob] = useState();
   const handleChange = (e) => {
     setChecked(e.target.checked);
     console.log(checked, "checked");
@@ -51,7 +50,7 @@ function Experience() {
         <Grid item xs={12} sm={6}>
           <FormControl>
             <FormLabel required>Work Experience</FormLabel>
-            <RadioGroup sx={{ display: "flex" }}>
+            <RadioGroup value={experience} onChange={(e)=>setExperience(e.target.value)} sx={{ display: "flex" }}>
               <FormControlLabel value="No" control={<Radio />} label="No" />
               <FormControlLabel value="yes" control={<Radio />} label="yes" />
             </RadioGroup>
@@ -61,6 +60,8 @@ function Experience() {
           <TextField
             select
             required
+            value={salary}
+            onChange={(e)=>setSalary(e.target.value)}
             fullWidth
             variant="outlined"
             label="Expected Salary"
@@ -70,14 +71,14 @@ function Experience() {
             }}
           >
             {expectedSalary.map((option) => (
-              <option key={option.id} value={option.id}>
-                {option.salary}
-              </option>
+              <option>{option.salary}</option>
             ))}
           </TextField>
         </Grid>
         <Grid item xs={12}>
           <TextField
+          value={job}
+          onChange={(e)=>setJob(e.target.value)}
             label="Preffered Job City"
             id="City"
             name="City"

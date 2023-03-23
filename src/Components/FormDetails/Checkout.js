@@ -11,6 +11,8 @@ import PersonalDetails from "./PersonalDetails";
 import Qualifications from "./Qualifications";
 import Experience from "./Experience";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { formData } from "../../Slice/Slice";
 const steps = ["Personal Details", "Qualifications", "Experience"];
 
 function getStepContent(step) {
@@ -28,6 +30,7 @@ function getStepContent(step) {
 
 export default function Checkout() {
   const dispatch=useDispatch()
+  const {user}=useSelector(formData)
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -37,6 +40,11 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
+  const onSubmit=(e)=>{
+    e.preventDefault();
+    dispatch(formData());
+  }
+
   return (
     <>
       <Container component="main" maxWidth="sm" sx={{ mt: 4 }}>
@@ -45,7 +53,6 @@ export default function Checkout() {
           sx={{
             my: { xs: 3, md: 6 },
             p: { xs: 2, md: 3 },
-            backgroundColor: "lightblue",
           }}
         >
           <Typography component="h1" variant="h4" align="center">
@@ -61,7 +68,7 @@ export default function Checkout() {
           {activeStep === steps.length ? (
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
-                Your Information has been Stored in The console
+                Data has been verified
               </Typography>
             </React.Fragment>
           ) : (
@@ -82,6 +89,7 @@ export default function Checkout() {
                   variant="contained"
                   onClick={handleNext}
                   sx={{ mt: 3, ml: 1 }}
+                  onChange={onSubmit}
                 >
                   {activeStep === steps.length - 1 ? "Submit" : "Next"}
                 </Button>
