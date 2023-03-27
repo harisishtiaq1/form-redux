@@ -6,7 +6,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 const careerLevel = [
   {
     value: "Entry Level",
@@ -59,8 +61,16 @@ const degreeLevel = [
     name: "Short Course",
   },
 ];
-function Qualifications() {
-  const [newObject,setNewObject]=({})
+function Qualifications({ handleChangeObject }) {
+  const { user } = useSelector((state) => state.auth);
+  console.log("user from use selector");
+  console.log("user from use selector");
+  console.log("user from use selector");
+  console.log("user from use selector");
+  console.log(user);
+  const [qualificationObject, setQualificationObject] = useState({});
+  const [newObject, setNewObject] = useState({});
+
   // const [career, setCareer] = useState();
   // const [newDegreeLevel, setNewDegreeLevel] = useState();
   // const [portfolio, setPortfolio] = useState();
@@ -70,20 +80,41 @@ function Qualifications() {
   // const handleChange = (event) => {
   //   setChecked(event.target.checked);
   // };
+  // handleChangeObject = () => {
+  //   console.log("use detail");
+  //   console.log("use detail");
+  //   console.log("use detail");
+  //   console.log("use detail");
+  //   console.log(newObject);
+  // };
+  useEffect(() => {
+    let finalObject = {
+      career: career,
+      newDegreeLevel: newDegreeLevel,
+      portfolio: portfolio,
+      profile: profile,
+      checked: checked,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      city: user.city,
+      country: user.country,
+      gender: user.gender,
+      phoneNumber:user.phoneNumber,
+      address:user.address,
+      newMartialStatus:user.newMartialStatus,
+    };
+    setNewObject(finalObject);
+    handleChangeObject(finalObject);
+  }, [newObject]);
   const handleChange = (event) => {
     event.preventDefault();
-    setNewObject({
-      ...newObject,
+    setQualificationObject({
+      ...qualificationObject,
       [event.target.name]: event.target.value,
     });
   };
-  const {
-    career,
-    newDegreeLevel,
-    portfolio,
-    profile,
-    checked,
-  } = newObject;
+  const { career, newDegreeLevel, portfolio, profile, checked } =
+    qualificationObject;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -92,7 +123,7 @@ function Qualifications() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
-          name="career"
+            name="career"
             select
             required
             value={career}
@@ -111,12 +142,11 @@ function Qualifications() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-          name="newDegreeLevel"
+            name="newDegreeLevel"
             select
             required
             value={newDegreeLevel}
             onChange={(event) => handleChange(event)}
-            
             label="Degree Level"
             SelectProps={{
               native: true,
@@ -131,19 +161,18 @@ function Qualifications() {
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
-          name="portfolio"
+            name="portfolio"
             label="Website/Portfolio"
             variant="outlined"
             value={portfolio}
             onChange={(event) => handleChange(event)}
-            
             required
             fullWidth
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
-          name="profile"
+            name="profile"
             label="Your Linkedin Profile"
             variant="outlined"
             value={profile}
@@ -155,7 +184,13 @@ function Qualifications() {
       </Grid>
       <FormControl>
         <FormControlLabel
-          control={<Switch name="checked" checked={checked} onChange={(event)=>handleChange(event)} />}
+          control={
+            <Switch
+              name="checked"
+              checked={checked}
+              onChange={(event) => handleChange(event)}
+            />
+          }
           label="Agreed"
         />
       </FormControl>

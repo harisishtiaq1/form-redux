@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
@@ -11,24 +11,31 @@ import PersonalDetails from "./PersonalDetails";
 import Qualifications from "./Qualifications";
 import Experience from "./Experience";
 import { useDispatch } from "react-redux";
-import { formData } from "../../Slice/Slice";
+import { personalData } from "../../Slice/Slice";
 const steps = ["Personal Details", "Qualifications", "Experience"];
 
 export default function Checkout() {
   const dispatch = useDispatch();
+  const [userDetailObject, setUserDetailObject] = useState();
   const [activeStep, setActiveStep] = React.useState(0);
   function getStepContent(step) {
     switch (step) {
       case 0:
-        return <PersonalDetails handleChangeObject={handleChangeObject()} />;
+        return <PersonalDetails handleChangeObject={handleChangeObject} />;
       case 1:
-        return <Qualifications />;
+        return <Qualifications handleChangeObject={handleChangeObject} />;
       case 2:
         return <Experience />;
       default:
         throw new Error("Unknown step");
     }
   }
+
+  console.log("user detail object");
+  console.log("user detail object");
+  console.log("user detail object");
+  console.log(userDetailObject);
+
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -36,14 +43,19 @@ export default function Checkout() {
   const handleBack = () => {
     setActiveStep(activeStep - 1);
   };
-  const onSubmit = (e) => {
-    e.preventDefault();
-    dispatch(formData());
+  const onSubmit = () => {
+    handleNext();
+    // e.preventDefault();
+    console.log("onsubmit called");
+    dispatch(personalData(userDetailObject));
   };
 
-
-  const handleChangeObject = () => {
+  const handleChangeObject = (data) => {
     console.log("hand;echange object triggered");
+    console.log("data");
+    console.log("data");
+    console.log(data);
+    setUserDetailObject(data);
   };
 
   return (
@@ -88,9 +100,9 @@ export default function Checkout() {
 
                 <Button
                   variant="contained"
-                  onClick={handleNext}
+                  onClick={onSubmit}
                   sx={{ mt: 3, ml: 1 }}
-                  onChange={onSubmit}
+                  // onChange={onSubmit}
                 >
                   {activeStep === steps.length - 1 ? "Submit" : "Next"}
                 </Button>

@@ -8,7 +8,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 const martialStatus = [
   {
     value: "Single",
@@ -33,16 +33,25 @@ function PersonalDetails({ handleChangeObject }) {
   // const [country, setCountry] = useState("");
   // const [gender, setGender] = useState();
   // const [newMartialStatus, setNewMartialStatus] = useState();
-  handleChangeObject = () => {
-    console.log("use detail");
-    console.log("use detail");
-    console.log("use detail");
-    console.log("use detail");
-    console.log(userObject);
-    // const { name, value } = event.target;
-    // console.log("form in personal Details", form);
-    // dispatch(personalData(userObject));
-  };
+  // handleChangeObject = () => {
+  //   console.log("use detail");
+  //   console.log("use detail");
+  //   console.log("use detail");
+  //   console.log("use detail");
+  //   console.log(userObject);
+  //   setUserObject(userObject);
+  // const { name, value } = event.target;
+  // console.log("form in personal Details", form);
+  // dispatch(personalData(userObject));
+  // };
+  useEffect(() => {
+    console.log("handlechange object");
+    console.log("handlechange object");
+    console.log("handlechange object");
+    console.log("handlechange object");
+    console.log(handleChangeObject);
+    handleChangeObject(userObject);
+  }, [userObject]);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -180,9 +189,7 @@ function PersonalDetails({ handleChangeObject }) {
             variant="standard"
           >
             {martialStatus.map((option) => (
-              <option>
-                {option.value}
-              </option>
+              <option>{option.value}</option>
             ))}
           </TextField>
         </Grid>

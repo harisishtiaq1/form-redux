@@ -47,7 +47,7 @@ export const authSlice = createSlice({
   //     });
 });
 export const personalData = (data) => (dispatch) => {
-  console.log("data");
+  console.log("data in slice");
   console.log("data");
   console.log("data");
   console.log(data);
