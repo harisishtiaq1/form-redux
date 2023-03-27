@@ -7,7 +7,6 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
-
 const careerLevel = [
   {
     value: "Entry Level",
@@ -69,6 +68,9 @@ function Qualifications() {
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (

@@ -37,6 +37,10 @@ function PersonalDetails() {
   const [gender, setGender] = useState();
   const [newMartialStatus, setNewMartialStatus] = useState();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
@@ -104,13 +108,12 @@ function PersonalDetails() {
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
             <FormLabel required>Gender</FormLabel>
-            <RadioGroup
-              defaultValue="female"
-              value={gender}
-              onChange={(e) => setGender(e.target.value)}
-            >
+            <RadioGroup defaultValue="female">
               <FormControlLabel
                 value="Female"
                 control={<Radio />}
