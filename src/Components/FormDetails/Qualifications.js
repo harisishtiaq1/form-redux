@@ -61,7 +61,7 @@ const degreeLevel = [
     name: "Short Course",
   },
 ];
-function Qualifications({ handleChangeQualifications }) {
+function Qualifications({ handleChangeObject }) {
   const { user } = useSelector((state) => state.auth);
   console.log("user from use selector");
   console.log("user from use selector");
@@ -87,8 +87,8 @@ function Qualifications({ handleChangeQualifications }) {
       address: user.address,
       newMartialStatus: user.newMartialStatus,
     };
-    setNewObject(finalObject);
-    handleChangeQualifications(finalObject);
+    setNewObject(newObject);
+    handleChangeObject(finalObject);
   }, []);
   const handleChange = (event) => {
     event.preventDefault();

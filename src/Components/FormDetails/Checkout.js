@@ -25,7 +25,7 @@ export default function Checkout() {
       case 1:
         return (
           <Qualifications
-            handleChangeQualifications={handleChangeQualifications}
+            handleChangeObject={handleChangeObject}
           />
         );
       case 2:
