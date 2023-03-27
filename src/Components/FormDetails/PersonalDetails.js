@@ -25,25 +25,7 @@ const martialStatus = [
 ];
 function PersonalDetails({ handleChangeObject }) {
   const [userObject, setUserObject] = useState({});
-  // const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  // const [address, setAddress] = useState("");
-  // const [city, setCity] = useState("");
-  // const [country, setCountry] = useState("");
-  // const [gender, setGender] = useState();
-  // const [newMartialStatus, setNewMartialStatus] = useState();
-  // handleChangeObject = () => {
-  //   console.log("use detail");
-  //   console.log("use detail");
-  //   console.log("use detail");
-  //   console.log("use detail");
-  //   console.log(userObject);
-  //   setUserObject(userObject);
-  // const { name, value } = event.target;
-  // console.log("form in personal Details", form);
-  // dispatch(personalData(userObject));
-  // };
+
   useEffect(() => {
     console.log("handlechange object");
     console.log("handlechange object");
