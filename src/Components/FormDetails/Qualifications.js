@@ -87,7 +87,7 @@ function Qualifications({ handleChangeObject }) {
       address: user.address,
       newMartialStatus: user.newMartialStatus,
     };
-    // setNewObject(finalObject);
+
     handleChangeObject(setNewObject);
   }, [newObject]);
   const handleChange = (event) => {
