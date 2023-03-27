@@ -61,7 +61,7 @@ const degreeLevel = [
     name: "Short Course",
   },
 ];
-function Qualifications({ handleChangeQualifications}) {
+function Qualifications({ handleChangeQualifications }) {
   const { user } = useSelector((state) => state.auth);
   console.log("user from use selector");
   console.log("user from use selector");

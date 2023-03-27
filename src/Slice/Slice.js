@@ -29,22 +29,6 @@ export const authSlice = createSlice({
       state.user = action.payload;
     },
   },
-  // extraReducers: (builders) => {
-  //   builders
-  //     .addCase(formData.pending, (state) => {
-  //       state.isLoading = true;
-  //     })
-  //     .addCase(formData.fulfilled, (state, action) => {
-  //       state.isLoading = false;
-  //       state.isError = false;
-  //       state.user = action.payload;
-  //     })
-  //     .addCase(formData.rejected, (state, action) => {
-  //       state.isLoading = false;
-  //       state.isError = true;
-  //       state.user = null;
-  //       state.user = action.payload;
-  //     });
 });
 export const personalData = (data) => (dispatch) => {
   console.log("data in slice");
