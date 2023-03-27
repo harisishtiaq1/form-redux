@@ -33,17 +33,16 @@ const expectedSalary = [
 ];
 
 function Experience() {
-  const [checked, setChecked] = useState(false);
-  const [experience, setExperience] = useState();
-  const [salary, setSalary] = useState();
-  const [job, setJob] = useState();
-  const handleChange = (e) => {
-    setChecked(e.target.checked);
-    console.log(checked, "checked");
+  const [experienceObject, setExperienceObject] = useState({});
+  const handleChange = (event) => {
+    event.preventDefault();
+    setExperienceObject({
+      ...experienceObject,
+      [event.target.name]: event.target.value,
+    });
   };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
+
+  const { checked, experience, salary, job } = experienceObject;
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
@@ -54,8 +53,9 @@ function Experience() {
           <FormControl>
             <FormLabel required>Work Experience</FormLabel>
             <RadioGroup
+              name="experience"
               value={experience}
-              onChange={(e) => setExperience(e.target.value)}
+              onChange={(event) => handleChange(event)}
               sx={{ display: "flex" }}
             >
               <FormControlLabel value="No" control={<Radio />} label="No" />
@@ -66,9 +66,10 @@ function Experience() {
         <Grid item xs={12} sm={12}>
           <TextField
             select
+            name="salary"
             required
             value={salary}
-            onChange={(e) => setSalary(e.target.value)}
+            onChange={(event) => handleChange(event)}
             fullWidth
             variant="outlined"
             label="Expected Salary"
@@ -84,11 +85,10 @@ function Experience() {
         </Grid>
         <Grid item xs={12}>
           <TextField
+            name="job"
             value={job}
-            onChange={(e) => setJob(e.target.value)}
+            onChange={(event) => handleChange(event)}
             label="Preffered Job City"
-            id="City"
-            name="City"
             variant="outlined"
             required
             fullWidth

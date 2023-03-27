@@ -23,7 +23,7 @@ export default function Checkout() {
       case 0:
         return <PersonalDetails handleChangeObject={handleChangeObject} />;
       case 1:
-        return <Qualifications handleChangeObject={handleChangeObject} />;
+        return <Qualifications handleChangeQualifications={handleChangeQualifications} />;
       case 2:
         return <Experience />;
       default:
@@ -50,6 +50,13 @@ export default function Checkout() {
   };
 
   const handleChangeObject = (data) => {
+    console.log("hand;echange object triggered");
+    console.log("data");
+    console.log("data");
+    console.log(data);
+    setUserDetailObject(data);
+  };
+  const handleChangeQualifications = (data) => {
     console.log("hand;echange object triggered");
     console.log("data");
     console.log("data");
