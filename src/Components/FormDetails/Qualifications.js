@@ -6,7 +6,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 const careerLevel = [
   {
     value: "Entry Level",
@@ -60,19 +60,30 @@ const degreeLevel = [
   },
 ];
 function Qualifications() {
-  const [career, setCareer] = useState();
-  const [newDegreeLevel, setNewDegreeLevel] = useState();
-  const [portfolio, setPortfolio] = useState();
-  const [profile, setProfile] = useState();
-  const [checked, setChecked] = React.useState(false);
+  const [newObject,setNewObject]=({})
+  // const [career, setCareer] = useState();
+  // const [newDegreeLevel, setNewDegreeLevel] = useState();
+  // const [portfolio, setPortfolio] = useState();
+  // const [profile, setProfile] = useState();
+  // const [checked, setChecked] = React.useState(false);
 
+  // const handleChange = (event) => {
+  //   setChecked(event.target.checked);
+  // };
   const handleChange = (event) => {
-    setChecked(event.target.checked);
+    event.preventDefault();
+    setNewObject({
+      ...newObject,
+      [event.target.name]: event.target.value,
+    });
   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
+  const {
+    career,
+    newDegreeLevel,
+    portfolio,
+    profile,
+    checked,
+  } = newObject;
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -81,10 +92,11 @@ function Qualifications() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
+          name="career"
             select
             required
             value={career}
-            onChange={(e) => setCareer(e.target.value)}
+            onChange={(event) => handleChange(event)}
             label="Career Level"
             SelectProps={{
               native: true,
@@ -99,10 +111,12 @@ function Qualifications() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+          name="newDegreeLevel"
             select
             required
             value={newDegreeLevel}
-            onChange={(e) => setNewDegreeLevel(e.target.value)}
+            onChange={(event) => handleChange(event)}
+            
             label="Degree Level"
             SelectProps={{
               native: true,
@@ -117,20 +131,23 @@ function Qualifications() {
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
+          name="portfolio"
             label="Website/Portfolio"
             variant="outlined"
             value={portfolio}
-            onChange={(e) => setPortfolio(e.target.value)}
+            onChange={(event) => handleChange(event)}
+            
             required
             fullWidth
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={12}>
           <TextField
+          name="profile"
             label="Your Linkedin Profile"
             variant="outlined"
             value={profile}
-            onChange={(e) => setProfile(e.target.value)}
+            onChange={(event) => handleChange(event)}
             required
             fullWidth
           ></TextField>
@@ -138,7 +155,7 @@ function Qualifications() {
       </Grid>
       <FormControl>
         <FormControlLabel
-          control={<Switch checked={checked} onChange={handleChange} />}
+          control={<Switch name="checked" checked={checked} onChange={(event)=>handleChange(event)} />}
           label="Agreed"
         />
       </FormControl>

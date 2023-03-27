@@ -11,35 +11,63 @@ import {
 import React, { useState } from "react";
 const martialStatus = [
   {
-    id: 1,
     value: "Single",
   },
   {
-    id: 2,
     value: "Married",
   },
   {
-    id: 3,
     value: "Divorced",
   },
   {
-    id: 4,
     value: "Widow",
   },
 ];
-function PersonalDetails() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("");
-  const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
-  const [gender, setGender] = useState();
-  const [newMartialStatus, setNewMartialStatus] = useState();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+function PersonalDetails({ handleChangeObject }) {
+  const [userObject, setUserObject] = useState({});
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [phoneNumber, setPhoneNumber] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [city, setCity] = useState("");
+  // const [country, setCountry] = useState("");
+  // const [gender, setGender] = useState();
+  // const [newMartialStatus, setNewMartialStatus] = useState();
+  handleChangeObject = () => {
+    console.log("use detail");
+    console.log("use detail");
+    console.log("use detail");
+    console.log("use detail");
+    console.log(userObject);
+    // const { name, value } = event.target;
+    // console.log("form in personal Details", form);
+    // dispatch(personalData(userObject));
   };
+
+  const handleChange = (event) => {
+    event.preventDefault();
+    setUserObject({
+      ...userObject,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  console.log("userObject");
+  console.log("userObject");
+  console.log("userObject");
+  console.log("userObject");
+  console.log(userObject);
+  const {
+    firstName,
+    lastName,
+    phoneNumber,
+    city,
+    country,
+    gender,
+    address,
+    newMartialStatus,
+  } = userObject;
+  // const handleSubmit ()
 
   return (
     <React.Fragment>
@@ -49,21 +77,23 @@ function PersonalDetails() {
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
+            name="firstName"
             label="First name"
             variant="standard"
             required
             fullWidth
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName || ""}
+            onChange={(event) => handleChange(event)}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            name="lastName"
             label="Last name"
             variant="standard"
             required
             value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(event) => handleChange(event)}
             fullWidth
           ></TextField>
         </Grid>
@@ -72,48 +102,54 @@ function PersonalDetails() {
             label="Phone Number"
             variant="standard"
             required
+            name="phoneNumber"
             fullWidth
             value={phoneNumber}
-            onChange={(e) => setPhoneNumber(e.target.value)}
+            onChange={(event) => handleChange(event)}
           ></TextField>
         </Grid>
         <Grid item xs={12}>
           <TextField
             label="Address"
+            name="address"
             variant="standard"
             required
             fullWidth
             value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={(event) => handleChange(event)}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            name="city"
             label="City"
             variant="standard"
             required
             fullWidth
             value={city}
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(event) => handleChange(event)}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            name="country"
             label="Country"
             variant="standard"
             required
             fullWidth
             value={country}
-            onChange={(e) => setCountry(e.target.value)}
+            onChange={(event) => handleChange(event)}
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          >
+          <FormControl>
             <FormLabel required>Gender</FormLabel>
-            <RadioGroup defaultValue="female">
+            <RadioGroup
+              defaultValue="female"
+              name="gender"
+              value={gender}
+              onChange={(event) => handleChange(event)}
+            >
               <FormControlLabel
                 value="Female"
                 control={<Radio />}
@@ -130,8 +166,9 @@ function PersonalDetails() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
+            name="martialStatus"
             value={newMartialStatus}
-            onChange={(e) => setNewMartialStatus(e.target.value)}
+            onChange={(event) => handleChange(event)}
             select
             required
             label="Martial Status"
@@ -143,7 +180,7 @@ function PersonalDetails() {
             variant="standard"
           >
             {martialStatus.map((option) => (
-              <option key={option.id} value={option.id}>
+              <option>
                 {option.value}
               </option>
             ))}

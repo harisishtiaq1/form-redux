@@ -14,23 +14,21 @@ import { useDispatch } from "react-redux";
 import { formData } from "../../Slice/Slice";
 const steps = ["Personal Details", "Qualifications", "Experience"];
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <PersonalDetails />;
-    case 1:
-      return <Qualifications />;
-    case 2:
-      return <Experience />;
-    default:
-      throw new Error("Unknown step");
-  }
-}
-
 export default function Checkout() {
   const dispatch = useDispatch();
   const [activeStep, setActiveStep] = React.useState(0);
-
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return <PersonalDetails handleChangeObject={handleChangeObject()} />;
+      case 1:
+        return <Qualifications />;
+      case 2:
+        return <Experience />;
+      default:
+        throw new Error("Unknown step");
+    }
+  }
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -42,8 +40,11 @@ export default function Checkout() {
     e.preventDefault();
     dispatch(formData());
   };
-  console.log("formData", formData);
-  console.log("formData", onSubmit);
+
+
+  const handleChangeObject = () => {
+    console.log("hand;echange object triggered");
+  };
 
   return (
     <>
@@ -68,7 +69,7 @@ export default function Checkout() {
           {activeStep === steps.length ? (
             <React.Fragment>
               <Typography variant="h5" gutterBottom>
-                Your Information has been Stored in The console
+                Your Information has been Stored in The console.
               </Typography>
             </React.Fragment>
           ) : (

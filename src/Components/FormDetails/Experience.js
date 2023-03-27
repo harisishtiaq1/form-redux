@@ -41,9 +41,9 @@ function Experience() {
     setChecked(e.target.checked);
     console.log(checked, "checked");
   };
-  const handleSubmit=(e)=>{
-e.preventDefault()
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  // };
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
