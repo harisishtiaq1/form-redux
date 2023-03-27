@@ -39,7 +39,7 @@ function Experience({ handleChangeObject }) {
   const [newObject, setNewObject] = useState({});
   useEffect(() => {
     let finalObject = {
-      checked: checked,
+      checked: true,
       experience: experience,
       salary: salary,
       jobCity: jobCity,

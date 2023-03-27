@@ -63,11 +63,6 @@ const degreeLevel = [
 ];
 function Qualifications({ handleChangeObject }) {
   const { user } = useSelector((state) => state.auth);
-  console.log("user from use selector");
-  console.log("user from use selector");
-  console.log("user from use selector");
-  console.log("user from use selector");
-  console.log(user);
   const [qualificationObject, setQualificationObject] = useState({});
   const [newObject, setNewObject] = useState({});
   const [checked, setChecked] = useState(true);
@@ -90,11 +85,11 @@ function Qualifications({ handleChangeObject }) {
       address: user.address,
       newMartialStatus: user.newMartialStatus,
     };
-    console.log("final object");
-    console.log("final object");
-    console.log("final object");
-    console.log("final object");
-    console.log(finalObject);
+    // console.log("final object");
+    // console.log("final object");
+    // console.log("final object");
+    // console.log("final object");
+    // console.log(finalObject);
     setNewObject(newObject);
     handleChangeObject(finalObject);
   }, [qualificationObject]);
@@ -106,11 +101,11 @@ function Qualifications({ handleChangeObject }) {
     });
   };
 
-  console.log("qualification object");
-  console.log("qualification object");
-  console.log("qualification object");
-  console.log("qualification object");
-  console.log(qualificationObject);
+  // console.log("qualification object");
+  // console.log("qualification object");
+  // console.log("qualification object");
+  // console.log("qualification object");
+  // console.log(qualificationObject);
 
   const { career, newDegreeLevel, portfolio, profile } = qualificationObject;
   return (

@@ -17,8 +17,6 @@ const steps = ["Personal Details", "Qualifications", "Experience"];
 export default function Checkout() {
   const dispatch = useDispatch();
   const [userDetailObject, setUserDetailObject] = useState();
-  const [userDetailQualifications, setUserDetailQualifications] = useState();
-  const [userDetailExperience, setUserDetailExperience] = useState();
 
   const [activeStep, setActiveStep] = React.useState(0);
   function getStepContent(step) {
@@ -34,10 +32,10 @@ export default function Checkout() {
     }
   }
 
-  console.log("user detail object");
-  console.log("user detail object");
-  console.log("user detail object");
-  console.log(userDetailObject);
+  // console.log("user detail object");
+  // console.log("user detail object");
+  // console.log("user detail object");
+  // console.log(userDetailObject);
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -48,30 +46,16 @@ export default function Checkout() {
   };
   const onSubmit = () => {
     handleNext();
-    console.log("onsubmit called");
+    // console.log("onsubmit called");
     dispatch(personalData(userDetailObject));
   };
 
   const handleChangeObject = (data) => {
-    console.log("hand;echange object triggered");
-    console.log("data");
-    console.log("data");
-    console.log(data);
+    // console.log("hand;echange object triggered");
+    // console.log("data");
+    // console.log("data");
+    // console.log(data);
     setUserDetailObject(data);
-  };
-  const handleChangeQualifications = (data) => {
-    console.log("hand;echange object triggered");
-    console.log("data");
-    console.log("data");
-    console.log(data);
-    setUserDetailQualifications(data);
-  };
-  const handleChangeExperience = (data) => {
-    console.log("hand;echange object triggered");
-    console.log("data");
-    console.log("data");
-    console.log(data);
-    setUserDetailExperience(data);
   };
 
   return (

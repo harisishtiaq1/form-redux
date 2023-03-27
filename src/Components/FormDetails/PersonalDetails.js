@@ -27,11 +27,11 @@ function PersonalDetails({ handleChangeObject }) {
   const [userObject, setUserObject] = useState({});
 
   useEffect(() => {
-    console.log("handlechange object");
-    console.log("handlechange object");
-    console.log("handlechange object");
-    console.log("handlechange object");
-    console.log(handleChangeObject);
+    // console.log("handlechange object");
+    // console.log("handlechange object");
+    // console.log("handlechange object");
+    // console.log("handlechange object");
+    // console.log(handleChangeObject);
     handleChangeObject(userObject);
   }, [userObject]);
 
@@ -43,9 +43,6 @@ function PersonalDetails({ handleChangeObject }) {
     });
   };
 
-  console.log("userObject");
-  console.log("userObject");
-  console.log("userObject");
   console.log("userObject");
   console.log(userObject);
   const {
@@ -132,14 +129,16 @@ function PersonalDetails({ handleChangeObject }) {
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl>
+          <FormControl
+            >
+
             <FormLabel required>Gender</FormLabel>
             <RadioGroup
+                name="gender"
+                value={gender}
+                onChange={(event) => handleChange(event)}
               defaultValue="female"
-              name="gender"
-              value={gender}
-              onChange={(event) => handleChange(event)}
-            >
+              >
               <FormControlLabel
                 value="Female"
                 control={<Radio />}
@@ -161,6 +160,7 @@ function PersonalDetails({ handleChangeObject }) {
             onChange={(event) => handleChange(event)}
             select
             required
+            defaultValue="Single"
             label="Martial Status"
             SelectProps={{
               native: true,
@@ -169,7 +169,7 @@ function PersonalDetails({ handleChangeObject }) {
             variant="standard"
           >
             {martialStatus.map((option) => (
-              <option>{option.value}</option>
+              <option key={option.value}>{option.value}</option>
             ))}
           </TextField>
         </Grid>
