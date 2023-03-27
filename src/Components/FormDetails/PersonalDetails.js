@@ -72,7 +72,7 @@ function PersonalDetails({ handleChangeObject }) {
             variant="standard"
             required
             fullWidth
-            value={firstName || ""}
+            value={firstName}
             onChange={(event) => handleChange(event)}
           ></TextField>
         </Grid>
@@ -162,7 +162,6 @@ function PersonalDetails({ handleChangeObject }) {
             select
             required
             label="Martial Status"
-            defaultValue="Select your Martial Status"
             SelectProps={{
               native: true,
             }}

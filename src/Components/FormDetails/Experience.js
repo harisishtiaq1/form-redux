@@ -9,7 +9,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const expectedSalary = [
   {
@@ -32,8 +33,32 @@ const expectedSalary = [
   },
 ];
 
-function Experience() {
+function Experience({ handleChangeObject }) {
+  const { user } = useSelector((state) => state.auth);
   const [experienceObject, setExperienceObject] = useState({});
+  const [newObject, setNewObject] = useState({});
+  useEffect(() => {
+    let finalObject = {
+      checked: checked,
+      experience: experience,
+      salary: salary,
+      jobCity: jobCity,
+      career: user.career,
+      newDegreeLevel: user.newDegreeLevel,
+      portfolio: user.portfolio,
+      profile: user.profile,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      city: user.city,
+      country: user.country,
+      gender: user.gender,
+      phoneNumber: user.phoneNumber,
+      address: user.address,
+      newMartialStatus: user.newMartialStatus,
+    };
+    setNewObject(newObject);
+    handleChangeObject(finalObject);
+  }, [experienceObject]);
   const handleChange = (event) => {
     event.preventDefault();
     setExperienceObject({
@@ -42,7 +67,7 @@ function Experience() {
     });
   };
 
-  const { checked, experience, salary, job } = experienceObject;
+  const { checked, experience, salary, jobCity } = experienceObject;
   return (
     <React.Fragment>
       <Typography variant="h5" component="h1">
@@ -85,8 +110,8 @@ function Experience() {
         </Grid>
         <Grid item xs={12}>
           <TextField
-            name="job"
-            value={job}
+            name="jobCity"
+            value={jobCity}
             onChange={(event) => handleChange(event)}
             label="Preffered Job City"
             variant="outlined"

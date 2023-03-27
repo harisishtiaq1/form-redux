@@ -17,15 +17,18 @@ const steps = ["Personal Details", "Qualifications", "Experience"];
 export default function Checkout() {
   const dispatch = useDispatch();
   const [userDetailObject, setUserDetailObject] = useState();
+  const [userDetailQualifications, setUserDetailQualifications] = useState();
+  const [userDetailExperience, setUserDetailExperience] = useState();
+
   const [activeStep, setActiveStep] = React.useState(0);
   function getStepContent(step) {
     switch (step) {
       case 0:
         return <PersonalDetails handleChangeObject={handleChangeObject} />;
       case 1:
-        return <Qualifications handleChangeQualifications={handleChangeQualifications} />;
+        return <Qualifications handleChangeObject={handleChangeObject} />;
       case 2:
-        return <Experience />;
+        return <Experience handleChangeObject={handleChangeObject} />;
       default:
         throw new Error("Unknown step");
     }
@@ -61,7 +64,14 @@ export default function Checkout() {
     console.log("data");
     console.log("data");
     console.log(data);
-    setUserDetailObject(data);
+    setUserDetailQualifications(data);
+  };
+  const handleChangeExperience = (data) => {
+    console.log("hand;echange object triggered");
+    console.log("data");
+    console.log("data");
+    console.log(data);
+    setUserDetailExperience(data);
   };
 
   return (
