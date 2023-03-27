@@ -72,7 +72,7 @@ function Qualifications({ handleChangeObject }) {
   const [newObject, setNewObject] = useState({});
 
   useEffect(() => {
-    let setNewObject = {
+    let finalObject = {
       career: career,
       newDegreeLevel: newDegreeLevel,
       portfolio: portfolio,
@@ -87,8 +87,8 @@ function Qualifications({ handleChangeObject }) {
       address: user.address,
       newMartialStatus: user.newMartialStatus,
     };
-
-    handleChangeObject(setNewObject);
+    setNewObject(finalObject);
+    handleChangeObject(finalObject);
   }, [newObject]);
   const handleChange = (event) => {
     event.preventDefault();

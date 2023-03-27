@@ -45,7 +45,6 @@ export default function Checkout() {
   };
   const onSubmit = () => {
     handleNext();
-    // e.preventDefault();
     console.log("onsubmit called");
     dispatch(personalData(userDetailObject));
   };
