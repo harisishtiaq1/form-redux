@@ -27,11 +27,6 @@ function PersonalDetails({ handleChangeObject }) {
   const [userObject, setUserObject] = useState({});
 
   useEffect(() => {
-    // console.log("handlechange object");
-    // console.log("handlechange object");
-    // console.log("handlechange object");
-    // console.log("handlechange object");
-    // console.log(handleChangeObject);
     handleChangeObject(userObject);
   }, [userObject]);
 
@@ -49,11 +44,11 @@ function PersonalDetails({ handleChangeObject }) {
     firstName,
     lastName,
     phoneNumber,
+    newMartialStatus,
     city,
     country,
     gender,
     address,
-    newMartialStatus,
   } = userObject;
 
   return (
@@ -129,16 +124,14 @@ function PersonalDetails({ handleChangeObject }) {
           ></TextField>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <FormControl
-            >
-
+          <FormControl>
             <FormLabel required>Gender</FormLabel>
             <RadioGroup
-                name="gender"
-                value={gender}
-                onChange={(event) => handleChange(event)}
+              name="gender"
+              value={gender}
+              onChange={(event) => handleChange(event)}
               defaultValue="female"
-              >
+            >
               <FormControlLabel
                 value="Female"
                 control={<Radio />}
@@ -155,7 +148,7 @@ function PersonalDetails({ handleChangeObject }) {
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField
-            name="martialStatus"
+            name="newMartialStatus"
             value={newMartialStatus}
             onChange={(event) => handleChange(event)}
             select

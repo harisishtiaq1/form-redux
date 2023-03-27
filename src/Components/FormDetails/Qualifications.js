@@ -77,13 +77,13 @@ function Qualifications({ handleChangeObject }) {
       portfolio: portfolio,
       profile: profile,
       firstName: user.firstName,
+      newMartialStatus: user.newMartialStatus,
       lastName: user.lastName,
       city: user.city,
       country: user.country,
       gender: user.gender,
       phoneNumber: user.phoneNumber,
       address: user.address,
-      newMartialStatus: user.newMartialStatus,
     };
     // console.log("final object");
     // console.log("final object");
@@ -101,11 +101,6 @@ function Qualifications({ handleChangeObject }) {
     });
   };
 
-  // console.log("qualification object");
-  // console.log("qualification object");
-  // console.log("qualification object");
-  // console.log("qualification object");
-  // console.log(qualificationObject);
 
   const { career, newDegreeLevel, portfolio, profile } = qualificationObject;
   return (
