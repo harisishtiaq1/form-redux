@@ -23,11 +23,7 @@ export default function Checkout() {
       case 0:
         return <PersonalDetails handleChangeObject={handleChangeObject} />;
       case 1:
-        return (
-          <Qualifications
-            handleChangeObject={handleChangeObject}
-          />
-        );
+        return <Qualifications handleChangeQualifications={handleChangeQualifications} />;
       case 2:
         return <Experience />;
       default:

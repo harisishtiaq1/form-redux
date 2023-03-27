@@ -58,7 +58,6 @@ function PersonalDetails({ handleChangeObject }) {
     address,
     newMartialStatus,
   } = userObject;
-  // const handleSubmit ()
 
   return (
     <React.Fragment>
