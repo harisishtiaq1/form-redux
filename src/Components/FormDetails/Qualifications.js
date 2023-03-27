@@ -71,24 +71,8 @@ function Qualifications({ handleChangeObject }) {
   const [qualificationObject, setQualificationObject] = useState({});
   const [newObject, setNewObject] = useState({});
 
-  // const [career, setCareer] = useState();
-  // const [newDegreeLevel, setNewDegreeLevel] = useState();
-  // const [portfolio, setPortfolio] = useState();
-  // const [profile, setProfile] = useState();
-  // const [checked, setChecked] = React.useState(false);
-
-  // const handleChange = (event) => {
-  //   setChecked(event.target.checked);
-  // };
-  // handleChangeObject = () => {
-  //   console.log("use detail");
-  //   console.log("use detail");
-  //   console.log("use detail");
-  //   console.log("use detail");
-  //   console.log(newObject);
-  // };
   useEffect(() => {
-    let finalObject = {
+    let setNewObject = {
       career: career,
       newDegreeLevel: newDegreeLevel,
       portfolio: portfolio,
@@ -99,12 +83,12 @@ function Qualifications({ handleChangeObject }) {
       city: user.city,
       country: user.country,
       gender: user.gender,
-      phoneNumber:user.phoneNumber,
-      address:user.address,
-      newMartialStatus:user.newMartialStatus,
+      phoneNumber: user.phoneNumber,
+      address: user.address,
+      newMartialStatus: user.newMartialStatus,
     };
-    setNewObject(finalObject);
-    handleChangeObject(finalObject);
+    // setNewObject(finalObject);
+    handleChangeObject(setNewObject);
   }, [newObject]);
   const handleChange = (event) => {
     event.preventDefault();
