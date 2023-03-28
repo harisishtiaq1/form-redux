@@ -101,7 +101,6 @@ function Qualifications({ handleChangeObject }) {
     });
   };
 
-
   const { career, newDegreeLevel, portfolio, profile } = qualificationObject;
   return (
     <React.Fragment>

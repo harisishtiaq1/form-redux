@@ -38,8 +38,6 @@ function PersonalDetails({ handleChangeObject }) {
     });
   };
 
-  console.log("userObject");
-  console.log(userObject);
   const {
     firstName,
     lastName,

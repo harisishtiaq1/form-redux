@@ -51,10 +51,6 @@ export default function Checkout() {
   };
 
   const handleChangeObject = (data) => {
-    // console.log("hand;echange object triggered");
-    // console.log("data");
-    // console.log("data");
-    // console.log(data);
     setUserDetailObject(data);
   };
 
