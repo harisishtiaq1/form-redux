@@ -32,11 +32,6 @@ export default function Checkout() {
     }
   }
 
-  // console.log("user detail object");
-  // console.log("user detail object");
-  // console.log("user detail object");
-  // console.log(userDetailObject);
-
   const handleNext = () => {
     setActiveStep(activeStep + 1);
   };
@@ -46,7 +41,6 @@ export default function Checkout() {
   };
   const onSubmit = () => {
     handleNext();
-    // console.log("onsubmit called");
     dispatch(personalData(userDetailObject));
   };
 
