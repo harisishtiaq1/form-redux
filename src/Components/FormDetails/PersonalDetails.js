@@ -51,7 +51,6 @@ function PersonalDetails({ handleChangeObject }) {
     firstName,
     lastName,
     phoneNumber,
-    newMartialStatus,
     city,
     country,
     gender,
