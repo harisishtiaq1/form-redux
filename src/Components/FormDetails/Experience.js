@@ -40,7 +40,7 @@ function Experience({ handleChangeObject }) {
     experience: "",
     salary: "10K-20K",
     jobCity: "",
-    checked: false,
+    checked: true,
   });
   const [newObject, setNewObject] = useState({});
   useEffect(() => {
@@ -111,7 +111,7 @@ function Experience({ handleChangeObject }) {
             }}
           >
             {expectedSalary.map((option) => (
-              <option>{option.salary}</option>
+              <option key={option.salary}>{option.salary}</option>
             ))}
           </TextField>
         </Grid>
@@ -129,7 +129,13 @@ function Experience({ handleChangeObject }) {
       </Grid>
       <FormControl sx={{ mt: 3 }}>
         <FormControlLabel
-          control={<Checkbox onChange={(event) => handleChange(event)} />}
+          control={
+            <Checkbox
+              name="checked"
+              value={checked}
+              onChange={(event) => handleChange(event)}
+            />
+          }
           label="I Hereby Apply for this role"
         />
       </FormControl>

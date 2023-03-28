@@ -68,10 +68,9 @@ function Qualifications({ handleChangeObject }) {
     newDegreeLevel: "Non-Matriculation",
     portfolio: "",
     profile: "",
-    agreed: false,
+    agreed: true,
   });
   const [newObject, setNewObject] = useState({});
-  // const [checked, setChecked] = useState(true);
   useEffect(() => {
     let finalObject = {
       agreed: agreed,
@@ -101,7 +100,6 @@ function Qualifications({ handleChangeObject }) {
 
   const { career, newDegreeLevel, portfolio, profile, agreed } =
     qualificationObject;
-  console.log("agreed", agreed);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -123,7 +121,7 @@ function Qualifications({ handleChangeObject }) {
             variant="standard"
           >
             {careerLevel.map((option) => (
-              <option>{option.value}</option>
+              <option key={option.value}>{option.value}</option>
             ))}
           </TextField>
         </Grid>
@@ -142,7 +140,7 @@ function Qualifications({ handleChangeObject }) {
             variant="standard"
           >
             {degreeLevel.map((option) => (
-              <option>{option.name}</option>
+              <option key={option.name}>{option.name}</option>
             ))}
           </TextField>
         </Grid>
@@ -174,7 +172,7 @@ function Qualifications({ handleChangeObject }) {
           control={
             <Switch
               name="agreed"
-              value={agreed}
+              value={qualificationObject.agreed}
               onChange={(event) => handleChange(event)}
             />
           }
