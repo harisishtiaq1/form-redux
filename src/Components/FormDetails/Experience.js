@@ -35,11 +35,17 @@ const expectedSalary = [
 
 function Experience({ handleChangeObject }) {
   const { user } = useSelector((state) => state.auth);
-  const [experienceObject, setExperienceObject] = useState({});
+  const [experienceObject, setExperienceObject] = useState({
+    checked:"",
+    experience:"",
+    salary:"10K-20K",
+    jobCity:"",
+    checked:false
+  });
   const [newObject, setNewObject] = useState({});
   useEffect(() => {
     let finalObject = {
-      checked: (true),
+      checked: checked,
       experience: experience,
       salary: salary,
       jobCity: jobCity,
@@ -50,6 +56,7 @@ function Experience({ handleChangeObject }) {
       firstName: user.firstName,
       lastName: user.lastName,
       city: user.city,
+      agreed:user.agreed,
       country: user.country,
       gender: user.gender,
       phoneNumber: user.phoneNumber,
@@ -122,7 +129,7 @@ function Experience({ handleChangeObject }) {
       </Grid>
       <FormControl sx={{ mt: 3 }}>
         <FormControlLabel
-          control={<Checkbox checked={checked} onChange={handleChange} />}
+          control={<Checkbox  onChange={(event)=>handleChange(event)} />}
           label="I Hereby Apply for this role"
         />
       </FormControl>

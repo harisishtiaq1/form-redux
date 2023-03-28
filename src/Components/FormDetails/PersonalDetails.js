@@ -24,7 +24,16 @@ const martialStatus = [
   },
 ];
 function PersonalDetails({ handleChangeObject }) {
-  const [userObject, setUserObject] = useState({});
+  const [userObject, setUserObject] = useState({
+    newMartialStatus: "Single",
+    firstName: "",
+    lastName: "",
+    city: "",
+    country: "",
+    gender: "",
+    address: "",
+    phoneNumber: "",
+  });
 
   useEffect(() => {
     handleChangeObject(userObject);
@@ -147,11 +156,11 @@ function PersonalDetails({ handleChangeObject }) {
         <Grid item xs={12} sm={6}>
           <TextField
             name="newMartialStatus"
-            value={newMartialStatus}
+            value={userObject.newMartialStatus}
             onChange={(event) => handleChange(event)}
             select
             required
-            defaultValue="Single"
+            // defaultValue="Single"
             label="Martial Status"
             SelectProps={{
               native: true,

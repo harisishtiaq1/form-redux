@@ -63,15 +63,18 @@ const degreeLevel = [
 ];
 function Qualifications({ handleChangeObject }) {
   const { user } = useSelector((state) => state.auth);
-  const [qualificationObject, setQualificationObject] = useState({});
+  const [qualificationObject, setQualificationObject] = useState({
+    career: "Entry Level",
+    newDegreeLevel: "Non-Matriculation",
+    portfolio: "",
+    profile: "",
+    agreed: false,
+  });
   const [newObject, setNewObject] = useState({});
-  const [checked, setChecked] = useState(true);
-
-  const handleEffect = (event) => {
-    setChecked(event.target.checked);
-  };
+  // const [checked, setChecked] = useState(true);
   useEffect(() => {
     let finalObject = {
+      agreed: agreed,
       career: career,
       newDegreeLevel: newDegreeLevel,
       portfolio: portfolio,
@@ -85,11 +88,6 @@ function Qualifications({ handleChangeObject }) {
       phoneNumber: user.phoneNumber,
       address: user.address,
     };
-    // console.log("final object");
-    // console.log("final object");
-    // console.log("final object");
-    // console.log("final object");
-    // console.log(finalObject);
     setNewObject(newObject);
     handleChangeObject(finalObject);
   }, [qualificationObject]);
@@ -101,7 +99,9 @@ function Qualifications({ handleChangeObject }) {
     });
   };
 
-  const { career, newDegreeLevel, portfolio, profile } = qualificationObject;
+  const { career, newDegreeLevel, portfolio, profile, agreed } =
+    qualificationObject;
+  console.log("agreed", agreed);
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -173,8 +173,9 @@ function Qualifications({ handleChangeObject }) {
         <FormControlLabel
           control={
             <Switch
-              checked={checked}
-              onChange={(event) => handleEffect(event)}
+              name="agreed"
+              value={agreed}
+              onChange={(event) => handleChange(event)}
             />
           }
           label="Agreed"
