@@ -54,8 +54,10 @@ export default function Checkout() {
         <Paper
           variant="outlined"
           sx={{
-            my: { xs: 3, md: 6 },
-            p: { xs: 2, md: 3 },
+            my: { xs: 4, md: 8 },
+            p: { xs: 3, md: 4 },
+            backgroundColor:'blueviolet',
+            background:"aqua"
           }}
         >
           <Typography component="h1" variant="h4" align="center">

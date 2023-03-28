@@ -68,7 +68,7 @@ function Qualifications({ handleChangeObject }) {
     newDegreeLevel: "Non-Matriculation",
     portfolio: "",
     profile: "",
-    agreed: true,
+    agreed: false,
   });
   const [newObject, setNewObject] = useState({});
   useEffect(() => {
@@ -171,8 +171,8 @@ function Qualifications({ handleChangeObject }) {
         <FormControlLabel
           control={
             <Switch
-              label="agreed"
-              value={qualificationObject.agreed}
+              name="agreed"
+              checked={qualificationObject.agreed}
               onChange={(event) => handleChange(event)}
             />
           }

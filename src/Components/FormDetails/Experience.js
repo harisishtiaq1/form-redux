@@ -40,7 +40,7 @@ function Experience({ handleChangeObject }) {
     experience: "",
     salary: "10K-20K",
     jobCity: "",
-    checked: true,
+    checked: false,
   });
   const [newObject, setNewObject] = useState({});
   useEffect(() => {
@@ -132,7 +132,7 @@ function Experience({ handleChangeObject }) {
           control={
             <Checkbox
               name="checked"
-              value={checked}
+              checked={checked}
               onChange={(event) => handleChange(event)}
             />
           }
