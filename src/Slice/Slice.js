@@ -25,6 +25,7 @@ export const authSlice = createSlice({
       state.isSuccess = false;
       state.message = "";
     },
+
     userDetail(state, action) {
       state.user = action.payload;
     },

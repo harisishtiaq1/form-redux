@@ -47,15 +47,8 @@ function PersonalDetails({ handleChangeObject }) {
     });
   };
 
-  const {
-    firstName,
-    lastName,
-    phoneNumber,
-    city,
-    country,
-    gender,
-    address,
-  } = userObject;
+  const { firstName, lastName, phoneNumber, city, country, gender, address } =
+    userObject;
 
   return (
     <React.Fragment>

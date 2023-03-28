@@ -171,12 +171,13 @@ function Qualifications({ handleChangeObject }) {
         <FormControlLabel
           control={
             <Switch
-              name="agreed"
+              label="agreed"
               value={qualificationObject.agreed}
               onChange={(event) => handleChange(event)}
             />
           }
           label="Agreed"
+          labelPlacement="bottom"
         />
       </FormControl>
     </React.Fragment>
