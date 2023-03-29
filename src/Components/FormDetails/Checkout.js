@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
@@ -16,7 +16,9 @@ const steps = ["Personal Details", "Qualifications", "Experience"];
 
 export default function Checkout() {
   const dispatch = useDispatch();
-  const [userDetailObject, setUserDetailObject] = useState();
+  const [userDetailObject, setUserDetailObject] = useState(
+    JSON.parse(localStorage.getItem("userDetailObject") || "")
+  );
 
   const [activeStep, setActiveStep] = React.useState(0);
   function getStepContent(step) {
@@ -43,66 +45,64 @@ export default function Checkout() {
     handleNext();
     dispatch(personalData(userDetailObject));
   };
-
+  useEffect(() => {
+    localStorage.setItem("userDetailObject", JSON.stringify(userDetailObject));
+  }, [userDetailObject]);
   const handleChangeObject = (data) => {
     setUserDetailObject(data);
   };
 
   return (
-    <>
-      <Container component="main" maxWidth="sm" sx={{ mt: 4 }}>
-        <Paper
-          variant="outlined"
-          sx={{
-            my: { xs: 4, md: 8 },
-            p: { xs: 3, md: 4 },
-            backgroundColor:'blueviolet',
-            background:"aqua"
-          }}
-        >
-          <Typography component="h1" variant="h4" align="center">
-            User Personal Details
-          </Typography>
-          <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-          {activeStep === steps.length ? (
-            <React.Fragment>
-              <Typography variant="h5" gutterBottom>
-                Your Information has been Stored in The console.
-              </Typography>
-            </React.Fragment>
-          ) : (
-            <React.Fragment>
-              {getStepContent(activeStep)}
-              <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-                {activeStep !== 0 && (
-                  <Button
-                    variant="contained"
-                    onClick={handleBack}
-                    sx={{ mt: 3, ml: 1 }}
-                  >
-                    Back
-                  </Button>
-                )}
-
+    <Container component="main" maxWidth="sm">
+      <Paper
+        variant="outlined"
+        sx={{
+          my: { xs: 4, md: 8 },
+          p: { xs: 3, md: 4 },
+        }}
+      >
+        <Typography component="h1" variant="h4" align="center">
+          User Personal Details
+        </Typography>
+        <Stepper activeStep={activeStep} sx={{ pt: 3, pb: 5 }}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+        {activeStep === steps.length ? (
+          <React.Fragment>
+            <Typography variant="h5" gutterBottom>
+              Your Information has been Stored in The console.
+            </Typography>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            {getStepContent(activeStep)}
+            <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+              {activeStep !== 0 && (
                 <Button
                   variant="contained"
-                  onClick={onSubmit}
+                  onClick={handleBack}
                   sx={{ mt: 3, ml: 1 }}
-                  // onChange={onSubmit}
                 >
-                  {activeStep === steps.length - 1 ? "Submit" : "Next"}
+                  Back
                 </Button>
-              </Box>
-            </React.Fragment>
-          )}
-        </Paper>
-      </Container>
-    </>
+              )}
+
+              <Button
+                variant="contained"
+                onClick={onSubmit}
+                sx={{ mt: 3, ml: 1 }}
+                // onChange={onSubmit}
+              >
+                {activeStep === steps.length - 1 ? "Submit" : "Next"}
+              </Button>
+            </Box>
+          </React.Fragment>
+        )}
+      </Paper>
+    </Container>
   );
 }
